@@ -7,18 +7,26 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule } from '@angular/material';
+import { 
+  MatToolbarModule,
+  MatButtonModule
+} from '@angular/material';
+import { TopComponent } from './top/top.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
