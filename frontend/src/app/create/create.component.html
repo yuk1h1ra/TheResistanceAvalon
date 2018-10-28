@@ -1,3 +1,20 @@
-<p>
-  create works!
-</p>
+<form>
+    <mat-form-field width=100%>
+        <input matInput placeholder="name">
+        <p>人数を選択してください</p>
+        <mat-select placeholder="people" disableRipple>
+            <mat-option value="5">５人</mat-option>
+            <mat-option value="6">６人</mat-option>
+            <mat-option value="7">７人</mat-option>
+            <mat-option value="8">８人</mat-option>
+            <mat-option value="9">９人</mat-option>
+            <mat-option value="10">１０人</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+
+<div>
+    <button mat-raised-button color="accent">
+        <span>作成</span>
+    </button>
+</div>
