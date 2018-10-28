@@ -12,11 +12,13 @@ import {
   MatButtonModule
 } from '@angular/material';
 import { TopComponent } from './top/top.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopComponent
+    TopComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
