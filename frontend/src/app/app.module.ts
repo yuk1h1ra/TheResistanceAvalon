@@ -11,10 +11,12 @@ import {
   MatToolbarModule,
   MatButtonModule
 } from '@angular/material';
+import { TopComponent } from './top/top.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopComponent
   ],
   imports: [
     BrowserModule,

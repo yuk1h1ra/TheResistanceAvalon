@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { TopComponent } from "./top/top.component"
+
+const routes: Routes = [
+    { path: '', redirectTo: '/top', pathMatch: 'full' },
+    { path: 'top', component: TopComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
