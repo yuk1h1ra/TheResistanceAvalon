@@ -12,4 +12,9 @@ export class CreateComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCreateRoom(value: any) {
+      console.log("push submit button");
+      console.log(value);
+  }
+
 }
