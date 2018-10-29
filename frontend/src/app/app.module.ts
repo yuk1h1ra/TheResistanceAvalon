@@ -7,6 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { 
   MatToolbarModule,
@@ -29,6 +30,7 @@ import { CreateComponent } from './create/create.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
