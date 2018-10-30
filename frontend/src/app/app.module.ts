@@ -17,12 +17,14 @@ import {
 } from '@angular/material';
 import { TopComponent } from './top/top.component';
 import { CreateComponent } from './create/create.component';
+import { RoomListComponent } from './room-list/room-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopComponent,
-    CreateComponent
+    CreateComponent,
+    RoomListComponent
   ],
   imports: [
     BrowserModule,
