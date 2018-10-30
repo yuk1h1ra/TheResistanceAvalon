@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 const Room = require('../../../models/room');
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
 
     new Room({
-        name: "Hello World",
-        seats: 5
+        name: req.body.title,
+        seats: Number(req.body.seats)
     }).save(function (err, room) {
         if(err) {
             console.log(err);
