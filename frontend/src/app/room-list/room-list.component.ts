@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RoomService } from '../room.service';
+
+import { Room } from '../room';
 
 @Component({
   selector: 'app-room-list',
@@ -8,14 +10,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RoomListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+    rooms: Room[];
+
+  constructor(private roomService: RoomService) { }
 
   ngOnInit() {
       this.getRooms();
   }
 
   getRooms(): void {
-    this.http.get('http://localhost:3000/api/v1/searchRoom')
-        .subscribe(res => console.log(res));
+        this.roomService.getRooms()
+            .subscribe(res => console.log(res.rooms));
   }
 }
