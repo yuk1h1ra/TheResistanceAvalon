@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Room = new Schema({
-    roomId: ObjectId,
     name: String,
     seats: Number,
     created_at: {
