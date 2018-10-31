@@ -16,10 +16,11 @@ export class RoomListComponent implements OnInit {
 
   ngOnInit() {
       this.getRooms();
+      console.log(this.rooms)
   }
 
   getRooms(): void {
         this.roomService.getRooms()
-            .subscribe(res => console.log(res.rooms));
+            .subscribe(rooms => console.log(rooms));
   }
 }
