@@ -14,7 +14,8 @@ import {
   MatButtonModule,
   MatInputModule,
   MatSelectModule,
-  MatListModule
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 import { TopComponent } from './top/top.component';
 import { CreateComponent } from './create/create.component';
@@ -40,7 +41,11 @@ import { HeaderComponent } from './header/header.component';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
+<<<<<<< HEAD
+    MatIconModule
+=======
     MatListModule
+>>>>>>> origin/master
   ],
   providers: [],
   bootstrap: [AppComponent]
