@@ -1,3 +1,7 @@
-<p>
-  room-list works!
-</p>
+<div>
+    <ul>
+        <li *ngFor="let room of rooms">
+            <span>{{room.name}}</span> {{room.seats}}
+        </li>
+    </ul>
+</div>
