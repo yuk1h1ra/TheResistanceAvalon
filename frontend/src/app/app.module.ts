@@ -41,11 +41,8 @@ import { HeaderComponent } from './header/header.component';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-<<<<<<< HEAD
+    MatListModule,
     MatIconModule
-=======
-    MatListModule
->>>>>>> origin/master
   ],
   providers: [],
   bootstrap: [AppComponent]
