@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top.component.css']
 })
 export class TopComponent implements OnInit {
-
-  title = "The Resistance Avalon"
-
   constructor() { }
 
   ngOnInit() {

@@ -18,13 +18,15 @@ import {
 import { TopComponent } from './top/top.component';
 import { CreateComponent } from './create/create.component';
 import { RoomListComponent } from './room-list/room-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopComponent,
     CreateComponent,
-    RoomListComponent
+    RoomListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
