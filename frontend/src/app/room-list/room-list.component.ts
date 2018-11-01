@@ -20,6 +20,6 @@ export class RoomListComponent implements OnInit {
 
   getRooms(): void {
         this.roomService.getRooms()
-            .subscribe(res => console.log(res.rooms));
+            .subscribe(rooms => this.rooms = rooms);
   }
 }
