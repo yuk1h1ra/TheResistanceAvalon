@@ -7,8 +7,6 @@ const helloRouter = require('./routes/api/v1/hello');
 const createRoomRouter = require('./routes/api/v1/createRoom');
 const searchRoomRouter = require('./routes/api/v1/searchRoom');
 
-const socket = require('./websocket');
-
 const mongoose = require('mongoose');
 const cors = require('cors')
 
