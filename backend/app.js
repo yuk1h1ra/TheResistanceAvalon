@@ -6,8 +6,7 @@ const logger = require('morgan');
 const helloRouter = require('./routes/api/v1/hello');
 const createRoomRouter = require('./routes/api/v1/createRoom');
 const searchRoomRouter = require('./routes/api/v1/searchRoom');
-
-const socket = require('./websocket');
+const roomRouter = require('./routes/ws/room');
 
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -24,6 +23,7 @@ app.use(cors())
 app.use('/api/v1/hello', helloRouter);
 app.use('/api/v1/createRoom', createRoomRouter);
 app.use('/api/v1/searchRoom', searchRoomRouter);
+app.use('/ws/room', roomRouter);
 
 mongoose.connect('mongodb://localhost:27017/backend', { useNewUrlParser: true })
 
