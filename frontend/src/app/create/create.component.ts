@@ -18,10 +18,9 @@ export class CreateComponent implements OnInit {
   }
 
   onCreateRoom(value: any) {
-      console.log(value);
       this.http.post('http://localhost:3000/api/v1/createRoom', value)
           .subscribe(data => {
-              this.router.navigate(["/room", data.createdRoom._id]);
+              this.router.navigate(["/room", data["createdRoom"]._id]);
           });
   }
 
