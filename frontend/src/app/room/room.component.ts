@@ -11,13 +11,14 @@ import * as io from 'socket.io-client';
 export class RoomComponent implements OnInit {
 
     roomId: String;
+    private socket;
 
     constructor(route: ActivatedRoute) { 
         this.roomId = route.snapshot.params['id'];
-        this.socket = io('http://localhost:3000');
     }
 
   ngOnInit() {
+      this.socket = io('http://localhost:3000/ws/room');
   }
 
 }
