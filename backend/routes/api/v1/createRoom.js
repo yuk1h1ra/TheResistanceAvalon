@@ -13,13 +13,13 @@ router.post('/', function(req, res) {
         if(err) {
             console.log(err);
         } else {
-            console.log(room);
+            const createdRoom = room;
+            res.json({
+                createdRoom: createdRoom,
+            });
         }
     })
 
-    res.json({
-        message: "OK, this is a createRoom",
-    });
 });
 
 module.exports = router;
