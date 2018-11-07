@@ -2,9 +2,9 @@
 
 <form>
     <mat-form-field>
-        <input matInput>
+        <input matInput [(ngModel)]="message" name="message">
     </mat-form-field>
-    <button mat-raised-button color="accent" type=submit>
+    <button mat-raised-button color="accent" type="submit" (click)="onSendMessage()">
         <span>送信</span>
     </button>
 </form>
