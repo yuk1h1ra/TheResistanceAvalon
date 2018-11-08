@@ -11,7 +11,7 @@ import { ChatService } from '../chat.service';
 export class RoomComponent implements OnInit {
 
     roomId: string;
-    message: string;
+    inputMsg: string;
 
     constructor(route: ActivatedRoute,
                 private chatService: ChatService) {
@@ -20,11 +20,12 @@ export class RoomComponent implements OnInit {
 
     ngOnInit() {
         this.chatService.connect();
+        this.chatService.onNewMessage()
     }
 
     onSendMessage() {
-        console.log("press send message: " + this.message);
-        this.message = "";
+        this.chatService.emitMessage(this.inputMsg);
+        this.inputMsg = "";
     }
 
 }
