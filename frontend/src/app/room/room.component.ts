@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import * as io from 'socket.io-client';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-room',
@@ -10,15 +10,27 @@ import * as io from 'socket.io-client';
 })
 export class RoomComponent implements OnInit {
 
-    roomId: String;
-    private socket;
+    roomId: string;
+    inputMsg: string;
 
-    constructor(route: ActivatedRoute) { 
+    msgLog: string[] = [];
+
+    constructor(route: ActivatedRoute,
+                private chatService: ChatService) {
         this.roomId = route.snapshot.params['id'];
     }
 
-  ngOnInit() {
-      this.socket = io('http://localhost:3000/ws/room');
-  }
+    ngOnInit() {
+        this.chatService.connect(this.roomId);
+        this.chatService.onNewMessage()
+            .subscribe(msg => {
+                this.msgLog.push(msg);
+            });
+    }
+
+    onSendMessage() {
+        this.chatService.emitMessage(this.inputMsg);
+        this.inputMsg = "";
+    }
 
 }

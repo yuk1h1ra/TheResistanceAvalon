@@ -1,10 +1,16 @@
-{{roomId}}
+<div>
+    <div *ngFor="let msg of msgLog">
+        <mat-card style="margin:3px;">
+            {{ msg }}
+        </mat-card>
+    </div>
+</div>
 
 <form>
     <mat-form-field>
-        <input matInput>
+        <input matInput [(ngModel)]="inputMsg" name="inputMsg">
     </mat-form-field>
-    <button mat-raised-button color="accent" type=submit>
+    <button mat-raised-button color="accent" type="submit" (click)="onSendMessage()">
         <span>送信</span>
     </button>
 </form>
