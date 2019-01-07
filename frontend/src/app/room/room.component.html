@@ -1,7 +1,9 @@
-{{roomId}}
-
 <div>
-    {{ msgLog | json}}
+    <div *ngFor="let msg of msgLog">
+        <mat-card style="margin:3px;">
+            {{ msg }}
+        </mat-card>
+    </div>
 </div>
 
 <form>

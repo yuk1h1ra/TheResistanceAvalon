@@ -9,21 +9,23 @@ export class ChatService {
 
     constructor() { }
 
-    private url = 'http://localhost:3000/ws/room';
+    private url = 'http://localhost:3000';
     private socket;
+    private room_id;
 
-    connect() {
+    connect(room_id) {
+        this.room_id = room_id
         this.socket = io(this.url)
+        this.socket.emit('join', room_id)
     }
 
     emitMessage(msg: string) {
-        this.socket.emit('new-message', { message: msg });
+        this.socket.emit('new-message', { message: msg, room_id: this.room_id });
     }
 
     public onNewMessage = () => {
         return Observable.create((observer) => {
             this.socket.on('new-message', (msg) => {
-                console.log(msg);
                 observer.next(msg);
             });
         });

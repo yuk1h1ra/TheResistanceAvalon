@@ -25,12 +25,16 @@ var server = http.createServer(app);
  * this is socket io
  */
 const io = require('socket.io')(server);
-io.of('/ws/room').on('connection', function(socket) {
+io.on('connection', function(socket) {
     console.log('a user connected');
 
+    socket.on('join', function(room_id) {
+        console.log("join room: " + room_id)
+        socket.join(room_id)
+    })
+
     socket.on('new-message', function(msg) {
-        socket.emit('new-message', msg);
-        socket.broadcast.emit('new-message', msg);
+        io.to(msg.room_id).emit('new-message', msg.message);
     });
 
     socket.on('disconnect', function() {

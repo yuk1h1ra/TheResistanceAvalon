@@ -21,10 +21,9 @@ export class RoomComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.chatService.connect();
+        this.chatService.connect(this.roomId);
         this.chatService.onNewMessage()
             .subscribe(msg => {
-                console.log(msg);
                 this.msgLog.push(msg);
             });
     }

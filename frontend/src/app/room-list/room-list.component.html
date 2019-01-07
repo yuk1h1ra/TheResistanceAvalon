@@ -1,5 +1,5 @@
 <mat-list>
-    <h3 mat-subheader>円卓一覧</h3>
+    <h3 mat-subheader>一覧</h3>
     <mat-list-item *ngFor="let room of rooms" [routerLink]="['/room/', room._id]">
         <h4 mat-line><span>{{room.name}}</span>{{room.seats}}</h4>
     </mat-list-item>

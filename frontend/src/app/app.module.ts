@@ -15,7 +15,8 @@ import {
   MatInputModule,
   MatSelectModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule,
 } from '@angular/material';
 import { TopComponent } from './top/top.component';
 import { CreateComponent } from './create/create.component';
@@ -44,7 +45,8 @@ import { RoomComponent } from './room/room.component';
     MatInputModule,
     MatSelectModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
