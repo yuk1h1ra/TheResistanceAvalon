@@ -13,6 +13,8 @@ export class RoomComponent implements OnInit {
     roomId: string;
     inputMsg: string;
 
+    msgLog: string[] = [];
+
     constructor(route: ActivatedRoute,
                 private chatService: ChatService) {
         this.roomId = route.snapshot.params['id'];
@@ -21,6 +23,10 @@ export class RoomComponent implements OnInit {
     ngOnInit() {
         this.chatService.connect();
         this.chatService.onNewMessage()
+            .subscribe(msg => {
+                console.log(msg);
+                this.msgLog.push(msg);
+            });
     }
 
     onSendMessage() {

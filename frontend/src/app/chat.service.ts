@@ -20,9 +20,9 @@ export class ChatService {
         this.socket.emit('new-message', { message: msg });
     }
 
-    onNewMessage() {
-        return Observable.create(observer => {
-            this.socket.on('new-message', msg => {
+    public onNewMessage = () => {
+        return Observable.create((observer) => {
+            this.socket.on('new-message', (msg) => {
                 console.log(msg);
                 observer.next(msg);
             });

@@ -1,5 +1,9 @@
 {{roomId}}
 
+<div>
+    {{ msgLog | json}}
+</div>
+
 <form>
     <mat-form-field>
         <input matInput [(ngModel)]="inputMsg" name="inputMsg">
