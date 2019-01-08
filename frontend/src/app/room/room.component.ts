@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ChatService } from '../chat.service';
@@ -12,10 +12,10 @@ import { Chat } from '../chat';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.css']
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent implements OnInit, OnDestroy {
 
     roomId: string;
-    inputMsg: string;
+    inputMsg: string = "";
     user: User;
 
     msgLog: Chat[] = [];
@@ -24,10 +24,11 @@ export class RoomComponent implements OnInit {
                 private chatService: ChatService,
                 private userService: UserService) {
         this.roomId = route.snapshot.params['id'];
-        this.user = this.userService.getUser();
     }
 
     ngOnInit() {
+        this.user = this.userService.getUser();
+        this.user.joined = false;
         this.chatService.connect(this.roomId);
         this.chatService.onNewMessage()
             .subscribe(msg => {
@@ -36,12 +37,35 @@ export class RoomComponent implements OnInit {
             });
     }
 
-    onSendMessage() {
+    ngOnDestroy() {
+        // 通知
         var chat = new Chat()
-        chat.message = this.inputMsg;
-        chat.user = this.user;
+        chat.message = this.user.name + "さんが退出しました";
+        var gm = new User()
+        gm.name = "GAME MASTER"
+        chat.user = gm;
         this.chatService.emitChat(chat);
-        this.inputMsg = "";
+        this.user.joined = false;
     }
 
+    onSendMessage() {
+        if(this.inputMsg != ""){
+            var chat = new Chat()
+            chat.message = this.inputMsg;
+            chat.user = this.user;
+            this.chatService.emitChat(chat);
+            this.inputMsg = "";
+        }
+    }
+
+    joinRoom() {
+        // 通知
+        var chat = new Chat()
+        chat.message = this.user.name + "さんが参加しました";
+        var gm = new User()
+        gm.name = "GAME MASTER"
+        chat.user = gm;
+        this.chatService.emitChat(chat);
+        this.user.joined = true;
+    }
 }

@@ -9,11 +9,23 @@
     </div>
 </div>
 
-<form>
-    <mat-form-field>
-        <input matInput [(ngModel)]="inputMsg" name="inputMsg">
-    </mat-form-field>
-    <button mat-raised-button color="accent" type="submit" (click)="onSendMessage()">
-        <span>送信</span>
-    </button>
-</form>
+<div class="bottom">
+    <div *ngIf="user.joined">
+        <form>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inputMsg" name="inputMsg">
+            </mat-form-field>
+            <button mat-raised-button color="accent" type="submit" (click)="onSendMessage()">
+                <span>送信</span>
+            </button>
+        </form>
+    </div>
+
+    <div *ngIf="!user.joined">
+        <form>
+            <button mat-raised-button color="accent" (click)="joinRoom()" style="width:100%;">
+                <span>Join</span>
+            </button>
+        </form>
+    </div>
+</div>
