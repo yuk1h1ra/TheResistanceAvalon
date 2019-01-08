@@ -34,7 +34,7 @@ io.on('connection', function(socket) {
     })
 
     socket.on('new-message', function(msg) {
-        io.to(msg.room_id).emit('new-message', msg.message);
+        io.to(msg.room_id).emit('new-message', msg.chat);
     });
 
     socket.on('disconnect', function() {

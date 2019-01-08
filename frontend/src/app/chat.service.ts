@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as io from 'socket.io-client';
 
+import { Chat } from './chat';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +21,8 @@ export class ChatService {
         this.socket.emit('join', room_id)
     }
 
-    emitMessage(msg: string) {
-        this.socket.emit('new-message', { message: msg, room_id: this.room_id });
+    emitChat(chat: Chat) {
+        this.socket.emit('new-message', { chat: chat, room_id: this.room_id });
     }
 
     public onNewMessage = () => {
