@@ -1,7 +1,10 @@
 <div>
     <div *ngFor="let msg of msgLog">
         <mat-card style="margin:3px;">
-            {{ msg }}
+            <mat-card-title>{{ msg.message }}</mat-card-title>
+            <mat-card-content>
+                {{ msg.user.name }}
+            </mat-card-content>
         </mat-card>
     </div>
 </div>

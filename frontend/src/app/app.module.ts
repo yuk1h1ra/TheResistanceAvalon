@@ -23,6 +23,7 @@ import { CreateComponent } from './create/create.component';
 import { RoomListComponent } from './room-list/room-list.component';
 import { HeaderComponent } from './header/header.component';
 import { RoomComponent } from './room/room.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RoomComponent } from './room/room.component';
     CreateComponent,
     RoomListComponent,
     HeaderComponent,
-    RoomComponent
+    RoomComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
